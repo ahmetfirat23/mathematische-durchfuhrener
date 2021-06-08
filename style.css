@@ -2,6 +2,7 @@ html {
   height: 100%;
 }
 body {
+  background-color: rgb(255, 211, 253);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9,73 +10,91 @@ body {
   left: 0;
 }
 
-main {
+main { 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   font-family: "Roboto Mono", monospace;
-  margin: 20px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 h1 {
-  font-size: 36px;
-  font-style: italic;
-}
-
-#base {
-  background-color: rgb(35, 189, 236);
-  padding: 20px;
-  border: 3px rgb(28, 149, 185) solid;
-  border-radius: 25px;
-  box-shadow: 0 01px rgb(28, 149, 185), 01px 0 rgb(28, 149, 185),
-    01px 02px rgb(28, 149, 185), 02px 01px rgb(28, 149, 185),
-    02px 03px rgb(28, 149, 185), 03px 02px rgb(28, 149, 185),
-    03px 04px rgb(28, 149, 185), 04px 03px rgb(28, 149, 185),
-    04px 05px rgb(28, 149, 185), 05px 04px rgb(28, 149, 185),
-    05px 06px rgb(28, 149, 185), 06px 05px rgb(28, 149, 185),
-    06px 07px rgb(28, 149, 185), 07px 06px rgb(28, 149, 185),
-    07px 08px rgb(28, 149, 185), 08px 07px rgb(28, 149, 185),
-    08px 09px rgb(28, 149, 185), 09px 08px rgb(28, 149, 185),
-    09px 10px rgb(28, 149, 185), 10px 09px rgb(28, 149, 185);
-}
-
-button {
-  cursor: pointer;
-  padding: 0px;
-  width: 40px;
-  height: 40px;
   text-align: center;
-  border: none;
-  border-radius: 12px;
-  background-color: rgb(255, 179, 16);
-  box-shadow: 3px 3px rgb(214, 151, 16);
+  background-color: #45f293;
+  color:rgb(240, 36, 36);
+  font-size: 48px;
+  font-style: italic;
+  padding: 10px 20px 10px 20px;
+  margin: 25px;
 }
-
-button:active {
-  background-color: rgb(255, 193, 59);
-  box-shadow: 1px 1px rgb(214, 151, 16);
-  transform: translateY(2px) translateX(2px);
+h2{
+  text-align: center;
+  background-color: #fed330;
+  color:rgb(252, 92, 101);
+  font-size: 24px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
 }
 
 #base {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
+  font-size: 24px;
+  background-color: rgb(69, 170, 242);
+  margin: 40px;
+  padding: 25px;
+  border: 3px rgb(45, 152, 218) solid;
+  border-radius: 25px;
+  box-shadow: 0 01px rgb(45, 152, 218), 01px 0 rgb(45, 152, 218),
+    01px 02px rgb(45, 152, 218), 02px 01px rgb(45, 152, 218),
+    02px 03px rgb(45, 152, 218), 03px 02px rgb(45, 152, 218),
+    03px 04px rgb(45, 152, 218), 04px 03px rgb(45, 152, 218),
+    04px 05px rgb(45, 152, 218), 05px 04px rgb(45, 152, 218),
+    05px 06px rgb(45, 152, 218), 06px 05px rgb(45, 152, 218),
+    06px 07px rgb(45, 152, 218), 07px 06px rgb(45, 152, 218),
+    07px 08px rgb(45, 152, 218), 08px 07px rgb(45, 152, 218),
+    08px 09px rgb(45, 152, 218), 09px 08px rgb(45, 152, 218),
+    09px 10px rgb(45, 152, 218), 10px 09px rgb(45, 152, 218);
+}
+
+button {
+  font-size: 24px;
+  font-family: 'Staatliches', cursive;
+  cursor: pointer;
+  padding: 0px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(247, 183, 49);
+  box-shadow: 5px 5px rgb(212, 156, 34);
+}
+
+button:active {
+  background-color: rgb(255, 193, 59);
+  box-shadow: 2px 2px rgb(212, 156, 34);
+  transform: translateY(3px) translateX(3px);
 }
 
 #display {
+  height: 36px;
+  width: 250px;
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.863);
   grid-area: 1 / 1 / 2 / 5;
   text-align: right;
-  padding: 8px 12px 8px 5px;
-  margin: 5px 0px 10px 0px;
+  padding: 13px 16px 13px 12px;
+  margin: 10px 0px 15px 0px;
   border: 2px solid rgb(158, 158, 158);
-  background-color: rgb(250, 250, 250);
-  border-radius: 10px;
+  background-color: rgb(223, 230, 238);
+  border-radius: 20px;
 }
 
 #equal {
   grid-area: 6 / 3 / 7 / 5;
-  width: 90px;
-  border-radius: 15px;
+  width: 135px;
 }

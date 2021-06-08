@@ -1,4 +1,5 @@
 const numbers = document.querySelectorAll("[data-number]");
+const dotBtn = document.querySelector("#dot");
 const allClearBtn = document.querySelector("#ac");
 const clearEntryBtn = document.querySelector("#ce");
 const signChangeBtn = document.querySelector("#signchange");
@@ -7,6 +8,8 @@ const multiplicationBtn = document.querySelector("#multiplication");
 const subtractionBtn = document.querySelector("#subtraction");
 const additionBtn = document.querySelector("#addition");
 const operateBtn = document.querySelector("#equal");
+
+const dotFunction = { none: 0, remove: 2, add: 1 };
 
 let displayScreen = document.querySelector("#display");
 
@@ -30,7 +33,14 @@ function display() {
     number = 0;
     changeSign();
   }
-  displayScreen.textContent = number;
+  if (entry.length < 14) {
+    displayScreen.style.fontSize = "28px";
+    displayScreen.textContent = entry.length != 0 ? entry.join("") : number;
+  } else {
+    displayScreen.style.fontSize = "20px";
+    displayScreen.textContent = number;
+  }
+  
 }
 
 function allClear() {
@@ -56,20 +66,39 @@ function changeSign() {
   display();
 }
 
-function dotCheck(){
-    entry.includes('.') ? false : true;
-}
-
 function numberEnter(num) {
   if (isResultShown) {
     entry = secondEntry;
     isResultShown = false;
   }
 
-//TODO include dot check and dot removal functionality
-
   if (!typedAfterResult) typedAfterResult = true;
   entry.push(num);
+  display();
+}
+
+function dotCheck() {
+  if (entry.length == 0) {
+    entry.push("0");
+    return 2;
+  } else if (entry.includes(".")) {
+    return entry.indexOf(".") == entry.length - 1 ? 1 : 0;
+  } else return 2;
+}
+
+function enterDot() {
+  switch (dotCheck()) {
+    case 0:
+      break;
+
+    case 1:
+      clearEntry();
+      break;
+
+    case 2:
+      numberEnter(".");
+      break;
+  }
   display();
 }
 
@@ -84,7 +113,7 @@ function divide(a, b) {
   if (b != 0) {
     return a / b;
   }
-  alert("No, you are not doing that!");
+  alert("Nein, tun Sie das nicht!");
   return 0;
 }
 
@@ -129,6 +158,7 @@ numbers.forEach(function (number) {
     numberEnter(number.getAttribute("data-number"));
   });
 });
+dotBtn.addEventListener("click", enterDot);
 allClearBtn.addEventListener("click", allClear);
 clearEntryBtn.addEventListener("click", clearEntry);
 signChangeBtn.addEventListener("click", changeSign);
